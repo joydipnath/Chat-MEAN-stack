@@ -37,6 +37,7 @@ module.exports = function(io,rooms){
                 socket.broadcast.to(room).emit('updateUsersList',JSON.stringify(userlist));
             }
         }
+        
         socket.on('updateList',function(data){
             updateUserList(data.room);
         })
