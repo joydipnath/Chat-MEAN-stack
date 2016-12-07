@@ -21,12 +21,12 @@
             $(document).on('keyup','.newmessage', function(e){
                 if(e.which === 13 && $(this).val()!= '') // event hadler knows its enter key i.e 13
                 {
-                   messages.emit('newMessage',{
-                       room_number:roomNum,
-                       user:userName,
-                       userPic:userPic,
-                       message:$(this).val()
-                   })
+                    messages.emit('newMessage',{
+                        room_number:roomNum,
+                        user:userName,
+                        userPic:userPic,
+                        message:$(this).val()
+                    })
                     updateMessageFeed(userPic,$(this).val());
                     $(this).val('');
 
@@ -39,12 +39,12 @@
             })
 
             function updateMessageFeed(userPic, message){
-                  var str = '<li>';
-                      str += '<div class="msgbox">';
-                      str += '<div class="pic"><img src="'+ userPic + '"></div>';
-                      str += '<div class="msg"><p>'+ message + '</p></div>';
-                      str += '</div>';
-                      str += '</li>';
+                var str = '<li>';
+                str += '<div class="msgbox">';
+                str += '<div class="pic"><img src="'+ userPic + '"></div>';
+                str += '<div class="msg"><p>'+ message + '</p></div>';
+                str += '</div>';
+                str += '</li>';
                 $(str).hide().prependTo($('.messages')).slideDown(100);
 
             }
@@ -70,7 +70,7 @@
     </h1>
     <div class="rm-userbox">
         <img src="{{user.profilePic}}" class="userPic" >
-        <h3 class="userName">{{user.fullname}} |<a href="/logout"> Logout</a> | <a href="/chatrooms">More Chatrooms</a></h3>
+        <h3 class="userName">{{user.fullname}} | <a href="#"> Logout</a> | <a href="/chatrooms">More Chatrooms</a></h3>
     </div>
     <div class="rm-roomname">
         <h5>{{room_name}}</h5>
@@ -78,10 +78,10 @@
     <div class="rm-messages">
         <ul class="messages">
             <!--<li>-->
-                <!--<div class="msgbox">-->
-                    <!--<div class="pic"><img src="{{user.profilePic}}"/></div>-->
-                    <!--<div class="msg"><p>Hi there?</p></div>-->
-                <!--</div>-->
+            <!--<div class="msgbox">-->
+            <!--<div class="pic"><img src="{{user.profilePic}}"/></div>-->
+            <!--<div class="msg"><p>Hi there?</p></div>-->
+            <!--</div>-->
             <!--</li>-->
         </ul>
     </div>

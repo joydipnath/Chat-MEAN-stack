@@ -17,13 +17,13 @@ module.exports = function(io,rooms){
         socket.on('joinroom',function(data){
             socket.username = data.user;
             socket.userPic = data.userPic;
-            socket.join(data.room);
+            socket.join(data.room);  //unique no of room and socket.join allows other user to join a perticular room
             updateUserList(data.room, true);
         })
         // broading msg to all ohter in the same room according to room number but except the same user
         //this is emitted when user press enter in rooms.html
-        socket.on('newmessage',function(data){
-            socket.broadcast.to(data.room_number).emit('messageFeed', JSON.stringify(data))
+        socket.on('newMessage',function(data){
+            socket.broadcast.to(data.room_number).emit('messageFeed', JSON.stringify(data));
         })
         function updateUserList(room, updateAll){
             var getUsers = io.of('/messages').clients(room);
@@ -37,9 +37,9 @@ module.exports = function(io,rooms){
                 socket.broadcast.to(room).emit('updateUsersList',JSON.stringify(userlist));
             }
         }
-
         socket.on('updateList',function(data){
             updateUserList(data.room);
         })
+
     })
 };
