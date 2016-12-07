@@ -3,6 +3,10 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="/socket.io/socket.io.js" ></script>
     <script>
@@ -64,38 +68,45 @@
     </script>
 </head>
 <body>
-<div class="rm-container">
-    <h1 class="rm-title">
-        Chat
-    </h1>
-    <div class="rm-userbox">
-        <img src="{{user.profilePic}}" class="userPic" >
-        <h3 class="userName">{{user.fullname}} | <a href="#"> Logout</a> | <a href="/chatrooms">More Chatrooms</a></h3>
-    </div>
-    <div class="rm-roomname">
-        <h5>{{room_name}}</h5>
-    </div>
-    <div class="rm-messages">
-        <ul class="messages">
-            <!--<li>-->
-            <!--<div class="msgbox">-->
-            <!--<div class="pic"><img src="{{user.profilePic}}"/></div>-->
-            <!--<div class="msg"><p>Hi there?</p></div>-->
-            <!--</div>-->
-            <!--</li>-->
-        </ul>
-    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-sm-3">
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <h1 class="rm-title">
+                Chat
+            </h1>
+            <div class="rm-userbox">
+                <img src="{{user.profilePic}}" class="userPic" >
+                <h3 class="userName">{{user.fullname}} | <a href="/logout"> Logout</a> | <a href="/chatrooms">More Chatrooms</a></h3>
+            </div>
+            <div class="rm-roomname">
+                Chatroom : {{room_name}}
+            </div>
+            <div class="row jumbotron">
+                <div class="col-md-7 col-sm-7">
+                    <div class="rm-messages">
+                        <ul class="messages">
 
-    <div class="rm-user">
-        <ul class="users">
-            <!--<li><img src="" />-->
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-5">
+                    <p class="rm-title">User in Chatroom</p>
+                    <div class="rm-user">
+                        <ul class="users">
 
-            <!--</li>-->
-        </ul>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="rm-newmessgae">
+                <textarea rows="4" cols="65" class="newmessage" auto-complete="off" placeholder="Type in your message here !"></textarea>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-3">
+        </div>
 
-    </div>
-    <div class="rm-newmessgae">
-        <input type="text" class="newmessage" auto-complete="off" placeholder="Type in your message here !" >
     </div>
 </div>
 </body>
