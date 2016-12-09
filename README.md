@@ -28,3 +28,5 @@ Package.json
 }
 
 ## Please use "socket.io": "^0.9.17" only as some features has been deprecated in future version.
+------------------------------
+And also dont forget to change  "dbURL":"mongodb://chat:chat@ds111748.mlab.com:11748/chat" in /config to your own mLab link.
